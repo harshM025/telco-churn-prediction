@@ -1,203 +1,169 @@
-📊 Telco Customer Churn Prediction
-🚀 Project Overview
+# 📊 Telco Customer Churn Prediction  
 
-This project builds an end-to-end Machine Learning pipeline to predict customer churn for a telecom company.
-The objective is to identify high-risk customers and assist the business in optimizing retention strategies.
+> 🚀 End-to-End Machine Learning Project  
+> 🎯 Business-Oriented | 📈 Threshold Optimized | 💻 Streamlit Deployed  
 
-The project covers:
+---
 
-Exploratory Data Analysis (EDA)
+## 🚀 Project Overview  
 
-Model comparison
+This project builds a complete **Machine Learning pipeline** to predict customer churn for a telecom company.
 
-Hyperparameter tuning
+The objective is to **identify high-risk customers** and support the business in optimizing retention strategies.
 
-Threshold optimization
+### 🔹 Project Workflow
 
-Business metric interpretation
+- 📊 Exploratory Data Analysis (EDA)  
+- 🤖 Model Comparison  
+- ⚙️ Hyperparameter Tuning  
+- 🎚 Threshold Optimization  
+- 📈 Business Metric Interpretation  
+- 💻 Streamlit Deployment  
 
-Deployment using Streamlit
+---
 
-🎯 Business Problem
+## 🎯 Business Problem  
 
 Customer churn directly impacts telecom revenue and long-term customer lifetime value.
 
-The goal is to:
+### Goals:
 
-Predict customers likely to churn
+- Identify customers likely to churn  
+- Increase churn detection rate  
+- Balance recall and marketing cost  
+- Build a deployable production-ready model  
 
-Increase churn detection rate
+📌 Dataset churn rate: **26% (Imbalanced Classification Problem)**  
 
-Balance recall and marketing cost
+---
 
-Optimize retention campaign efficiency
+## 📂 Dataset Description  
 
-Build a deployable and business-ready prediction system
+The dataset includes:
 
-Churn rate in dataset: 26% (Imbalanced classification problem)
+- 👤 Demographic Information  
+- 🌐 Service Subscription Details  
+- 💳 Billing & Payment Information  
+- 📄 Contract Details  
 
-📂 Dataset
+After preprocessing and one-hot encoding, the model uses:
 
-Telco Customer Churn Dataset containing:
+> **31 engineered features**
 
-Demographic information
+---
 
-Service subscription details
+## 🔍 Key Insights from EDA  
 
-Internet and add-on services
+- 📉 Month-to-month contracts show the highest churn rate  
+- 🌐 Fiber optic users churn more frequently  
+- ⏳ Customers with low tenure are more likely to churn  
+- 💳 Electronic check payments strongly correlate with churn  
+- 📄 Long-term contracts significantly reduce churn probability  
+- 🛠 Lack of add-on services increases churn likelihood  
 
-Billing and contract information
+---
 
-After preprocessing and one-hot encoding, the model uses 31 engineered features.
+## 🤖 Model Development  
 
-🔍 Exploratory Data Analysis (Key Insights)
+### Models Evaluated
 
-📉 Customers with month-to-month contracts have the highest churn rate
+- Logistic Regression  
+- Random Forest  
+- AdaBoost  
+- XGBoost  
+- Naive Bayes  
+- Decision Tree  
 
-🌐 Fiber optic users show significantly higher churn probability
+---
 
-⏳ Customers with low tenure are more likely to churn
+## ✅ Final Model: Regularized Logistic Regression  
 
-💳 Electronic check payment method correlates strongly with churn
+### Why Logistic Regression?
 
-📄 Customers on long-term contracts (1–2 years) show lower churn
+- 🏆 Highest ROC-AUC  
+- ⚖ Balanced precision–recall tradeoff  
+- 📉 Lower overfitting risk  
+- 📊 Business-friendly interpretability  
 
-🛠 Customers without value-added services (OnlineSecurity, TechSupport) tend to churn more
+---
 
-📊 Service combination patterns impact churn more than individual services
+## 📊 Final Model Performance  
 
-These insights highlight that churn is influenced more by contract flexibility and service dissatisfaction rather than just demographics.
+| Metric      | Score |
+|------------|--------|
+| Accuracy   | 0.781 |
+| Recall     | 0.720 |
+| ROC-AUC    | 0.857 |
+| Precision  | 0.578 |
 
-🤖 Model Development
-Models Compared
+🎯 Final Decision Threshold: **0.35**
 
-Logistic Regression
+---
 
-Random Forest
+## ⚖ Threshold Optimization Strategy  
 
-AdaBoost
+Instead of using the default 0.5 threshold, the model threshold was tuned to **0.35** to align with business impact.
 
-XGBoost
+### Tradeoff Logic:
 
-Naive Bayes
+- Lower threshold → Higher Recall (capture more churners)  
+- Higher threshold → Higher Precision (reduce marketing waste)  
 
-Decision Tree
+The selected threshold provides an optimal balance between churn detection and retention cost.
 
-Final Model Selected
+---
 
-Regularized Logistic Regression
+## 💰 Business Interpretation of Metrics  
 
-Why Logistic Regression?
+- **Recall (72%)** → Majority of churners correctly identified  
+- **Precision (58%)** → Efficient targeting of retention efforts  
+- **ROC-AUC (0.857)** → Strong class separation capability  
 
-Highest ROC-AUC
+📌 Accuracy alone is insufficient due to class imbalance.
 
-Balanced precision-recall tradeoff
+---
 
-Stable and consistent performance
+## 💻 Deployment  
 
-Less prone to overfitting
+The model is deployed using **Streamlit** with:
 
-Highly interpretable for business stakeholders
+- 🌙 Dark Theme UI  
+- 🔄 Real-time Churn Probability Prediction  
+- 🎯 Risk Segmentation:
+  - 🔴 High Risk  
+  - 🟡 Medium Risk  
+  - 🟢 Low Risk  
 
-📊 Final Model Performance
-Metric	Score
-Accuracy	0.781
-Recall	0.720
-ROC-AUC	0.857
-Precision	0.578
+---
 
-Final decision threshold: 0.35
+## 📈 Potential Business Impact  
 
-⚖ Threshold Optimization Strategy
+- Improve targeted retention campaigns  
+- Reduce unnecessary discounting  
+- Increase customer lifetime value  
+- Enable data-driven contract strategy  
 
-Instead of using the default 0.5 threshold, the decision threshold was tuned to 0.35 to optimize business impact.
+---
 
-Why 0.35?
+## 🛠 Tech Stack  
 
-Higher threshold → High precision but many churners missed
+- Python  
+- Pandas  
+- NumPy  
+- Scikit-Learn  
+- Streamlit  
+- Matplotlib  
+- Pickle  
 
-Lower threshold → High recall but excessive marketing cost
+---
 
-0.35 provided the best tradeoff between churn detection and retention efficiency
+## ▶ Run Locally  
 
-This approach aligns the ML model with real-world business decision-making.
-
-💰 Business Interpretation of Metrics
-
-Recall (72%) → Captures most potential churners
-
-Precision (58%) → More than half of targeted customers are true churners
-
-ROC-AUC (0.857) → Strong model discrimination capability
-
-Accuracy alone is not reliable due to class imbalance
-
-This demonstrates why evaluation beyond accuracy is critical in churn modeling.
-
-💻 Deployment
-
-The model is deployed using Streamlit with:
-
-Dark theme UI
-
-Full feature alignment with training data
-
-Real-time churn probability output
-
-Risk segmentation:
-
-🔴 High Risk
-
-🟡 Medium Risk
-
-🟢 Low Risk
-
-This allows business teams to quickly assess customer risk profiles.
-
-📈 Potential Business Impact
-
-Improve targeted retention campaigns
-
-Reduce unnecessary marketing expenditure
-
-Increase customer lifetime value
-
-Data-driven contract optimization strategies
-
-Early identification of dissatisfaction patterns
-
-🛠 Tech Stack
-
-Python
-
-Scikit-Learn
-
-Pandas
-
-NumPy
-
-Streamlit
-
-Matplotlib
-
-Pickle
-
-📌 Key Learnings
-
-ROC-AUC is more meaningful than accuracy in imbalanced datasets
-
-Precision–Recall tradeoff drives business decision quality
-
-Threshold tuning significantly impacts operational cost
-
-Deployment must strictly match training feature engineering
-
-End-to-end ML projects require both technical and business alignment
-
-▶ Run Locally
+```bash
 pip install -r requirements.txt
 streamlit run app.py
 
 👨‍💻 Author
 
 Harsh Mulimani
+Machine Learning Enthusiast
